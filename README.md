@@ -53,8 +53,11 @@ With these features, LPVS assists developers in effectively managing license com
 
 To enable _LPVS_ license scanning for your project, you need to set up GitHub Webhooks:
 
-1. Create a personal access token (`github.token`):
+1. Create a personal github access token (`personal-token`):
    - Follow the instructions [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token) to create a personal access token with the necessary permissions.
+
+   > [!NOTE]  
+   > Pay attention that the token must be copied immediately after creation, because you will not be able to see it later!!
 
 2. Configure the webhook in your GitHub repository settings:
    - Go to `Settings` -> `Webhooks`.
