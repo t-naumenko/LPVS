@@ -408,28 +408,29 @@ $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </spa
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-s<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;This is my commit message&quot;</span>
 </code></pre></div>
 <p>That’s it. Git adds your sign-off message in the commit message, and you contribution (commit) is now DCO compliant.</p>
+<hr />
 <h2 id="how-to-generate-python-requirements-file-with-hashes">How to generate Python requirements file with hashes?</h2>
-<p>To generate a Python requirements.txt file with hashes, which ensures that the same versions of packages are installed across different environments, you can use the <code>pip-compile</code> tool from the <code>pip-tools</code> package. Here's a step-by-step guide on how to achieve this:</p>
+<p>To generate a Python <code>requirements.txt</code> file with hashes, which ensures that the same versions of packages are installed across different environments, you can use the <code>pip-compile</code> tool from the <code>pip-tools</code> package. Here's a step-by-step guide on how to achieve this:</p>
 <h3 id="steps">Steps:</h3>
 <ol>
-<li>
-<p><strong>Install pip-tools:</strong>
-   First install pip-tools to manage you requirements.txt and add hashes.
+<li><strong>Install pip-tools:</strong></li>
+</ol>
+<p>First, install <code>pip-tools</code> to manage your <code>requirements.txt</code> and add hashes.
    <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pip-tools
 </code></pre></div></p>
-</li>
+<ol start="2">
 <li>
-<p><strong>Create requirements.in file:</strong>
-   Add your packages to a requirements.txt file. This file will be used as input to generate the final requirements.txt file with hashes.
-   In case you need to use exact version of a package you can specify it in this file.
-   Example requirements.in:
+<p><strong>Create <code>requirements.in</code> file:</strong>
+   Add your packages to a <code>requirements.in</code> file. This file will be used as input to generate the final <code>requirements.txt</code> file with hashes.
+   In case you need to use exact version of a package, you can specify it in this file.
+   Example <code>requirements.in</code>:
    <div class="highlight"><pre><span></span><code>mkdocs==1.6.1
 pymdown-extensions==10.9
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>Compile the requirements.txt with hashes:</strong>
-   Use pip-compile with <code>--generate-hashes</code> flag to create a requirements.txt file includes secure hashes.
+<p><strong>Compile the <code>requirements.txt</code> with hashes:</strong>
+   Use <code>pip-compile</code> with <code>--generate-hashes</code> flag to create a <code>requirements.txt</code> file includes secure hashes.
    <div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--generate-hashes
 </code></pre></div></p>
 </li>
@@ -440,13 +441,13 @@ pymdown-extensions==10.9
 <div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--output-file<span class="o">=</span>custom-requirements.txt<span class="w"> </span>--generate-hashes<span class="w"> </span>custom-requirements.in
 </code></pre></div>
 <ul>
-<li>Without <code>--output-file</code>: It will always create requirements.txt file.</li>
+<li>Without <code>--output-file</code>: It will always create <code>requirements.txt</code> file.</li>
 <li>With <code>--output-file</code>: It will specify any custom output file name.</li>
 </ul>
 </div>
 <ol start="4">
 <li><strong>Result:</strong>
-   It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
+   It will generate a <code>requirements.txt</code> (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
    Example output in requirements.txt:
    <div class="highlight"><pre><span></span><code>mkdocs==1.6.1 \
     --hash=sha256:... \
