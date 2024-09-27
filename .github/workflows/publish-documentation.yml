@@ -2,6 +2,9 @@ name: Build & Publish Documentation
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - docs/faq-update
 
 permissions:
   contents: read

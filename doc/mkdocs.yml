@@ -1,5 +1,5 @@
 site_name: License Pre-Validation Service
-site_url: https://samsung.github.io/LPVS/
+site_url: https://t-naumenko.github.io/LPVS/
 site_description: License Pre-Validation Service (LPVS) Documentation
 
 repo_url: https://github.com/Samsung/LPVS
@@ -15,6 +15,7 @@ theme:
 markdown_extensions:
   - admonition
   - attr_list
+  - sane_lists
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tasklist:
@@ -36,10 +37,10 @@ nav:
           - GitHub webhook configuration: user-guide/service/webhook.md
           - Run service using pre-built Docker image: user-guide/service/docker.md
           - Build and run service from the source code:
-            - Prerequisites:
-              - Scanner installation: user-guide/service/scanner.md
-              - Database configuration: user-guide/service/database.md
-            - Build and run service: user-guide/service/build-and-run.md
+              - Prerequisites:
+                  - Scanner installation: user-guide/service/scanner.md
+                  - Database configuration: user-guide/service/database.md
+              - Build and run service: user-guide/service/build-and-run.md
       - Command line mode:
           - Single scan of the pull request: user-guide/cli/cli_pr.md
           - Single scan of local files: user-guide/cli/cli_file.md
