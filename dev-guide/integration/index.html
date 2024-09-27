@@ -498,21 +498,20 @@ pymdown-extensions==10.9
 <li>
 <p><strong>Compile the requirements.txt with hashes:</strong>
    Use pip-compile with <code>--generate-hashes</code> flag to create a requirements.txt file includes secure hashes.
-   <div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--generate-hashes
+   <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip-compile<span class="w"> </span>--generate-hashes
 </code></pre></div></p>
 </li>
 </ol>
 <p>!!! note</p>
-<p>If you want to use custom names of input and output requirements file, specify them in command line like this:</p>
-<div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--output-file<span class="o">=</span>custom-requirements.txt<span class="w"> </span>--generate-hashes<span class="w"> </span>custom-requirements.in
-</code></pre></div>
-<ul>
-<li>Without <code>--output-file</code>: It will always create requirements.txt file.</li>
-<li>
-<p>With <code>--output-file</code>: It will specify any custom output file name.</p>
-</li>
-<li>
-<p><strong>Result:</strong>
+<pre><code>   If you want to use custom names of input and output requirements file, specify them in command line like this:
+   ```bash
+   $ pip-compile --output-file=custom-requirements.txt --generate-hashes custom-requirements.in
+   ```
+   - Without `--output-file`: It will always create requirements.txt file.
+   - With `--output-file`: It will specify any custom output file name.
+</code></pre>
+<ol>
+<li><strong>Result:</strong>
    It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
    Example output in requirements.txt:
    <div class="highlight"><pre><span></span><code>mkdocs==1.6.1 \
@@ -523,9 +522,8 @@ pymdown-extensions==10.9 \
     --hash=sha256:... \
     --hash=sha256:...
 ...
-</code></pre></div></p>
-</li>
-</ul></div>
+</code></pre></div></li>
+</ol></div>
             </div>
         </div>
 
