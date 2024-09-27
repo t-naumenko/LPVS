@@ -480,40 +480,42 @@ $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </spa
 <p>To generate a Python requirements.txt file with hashes, which ensures that the same versions of packages are installed across different environments, you can use the <code>pip-compile</code> tool from the <code>pip-tools</code> package. Here's a step-by-step guide on how to achieve this:</p>
 <h3 id="steps">Steps:</h3>
 <ol>
-<li><strong>Install pip-tools:</strong>
-   First install pip-tools to manage you requirements.txt and add hashes.</li>
-</ol>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pip-tools
-</code></pre></div>
-<ol>
-<li><strong>Create requirements.in file:</strong>
+<li>
+<p><strong>Install pip-tools:</strong>
+   First install pip-tools to manage you requirements.txt and add hashes.
+   <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pip-tools
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Create requirements.in file:</strong>
    Add your packages to a requirements.txt file. This file will be used as input to generate the final requirements.txt file with hashes.
    In case you need to use exact version of a package you can specify it in this file.
-   Example requirements.in:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>mkdocs==1.6.1
+   Example requirements.in:
+   <div class="highlight"><pre><span></span><code>mkdocs==1.6.1
 pymdown-extensions==10.9
-</code></pre></div>
-<ol>
-<li><strong>Compile the requirements.txt with hashes:</strong>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Compile the requirements.txt with hashes:</strong>
    Use pip-compile with <code>--generate-hashes</code> flag to create a requirements.txt file includes secure hashes.
    <div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--generate-hashes
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you want to use custom names of input and output requirements file, specify them in command line like this:
+<p>!!! note</p>
+<p>If you want to use custom names of input and output requirements file, specify them in command line like this:</p>
 <div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--output-file<span class="o">=</span>custom-requirements.txt<span class="w"> </span>--generate-hashes<span class="w"> </span>custom-requirements.in
 </code></pre></div>
-* Without <code>--output-file</code>: It will always create requirements.txt file.
-* With <code>--output-file</code>: It will specify any custom output file name.</p>
-</div>
-<ol>
-<li><strong>Result:</strong>
-   It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.</li>
-</ol>
-<p>Example output in requirements.txt:</p>
-<div class="highlight"><pre><span></span><code>mkdocs==1.6.1 \
+<ul>
+<li>Without <code>--output-file</code>: It will always create requirements.txt file.</li>
+<li>
+<p>With <code>--output-file</code>: It will specify any custom output file name.</p>
+</li>
+<li>
+<p><strong>Result:</strong>
+   It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
+   Example output in requirements.txt:
+   <div class="highlight"><pre><span></span><code>mkdocs==1.6.1 \
     --hash=sha256:... \
     --hash=sha256:...
 ...
@@ -521,7 +523,9 @@ pymdown-extensions==10.9 \
     --hash=sha256:... \
     --hash=sha256:...
 ...
-</code></pre></div></div>
+</code></pre></div></p>
+</li>
+</ul></div>
             </div>
         </div>
 
