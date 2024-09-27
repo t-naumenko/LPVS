@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://samsung.github.io/LPVS/dev-guide/integration/">
+        <link rel="canonical" href="https://t-naumenko.github.io/LPVS/dev-guide/integration/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>Integration guide - License Pre-Validation Service</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +17,8 @@
         <link href="../../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mkdocsoad.css" rel="stylesheet">
         <link href="../../css/extra.css" rel="stylesheet">
+        <link href="../../css/mkdocsoad.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
@@ -38,6 +38,9 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
                                 <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../quick-start-guide/" class="nav-link">Quick Start Guide</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
@@ -112,6 +115,10 @@
 </li>
     </ul>
   </li>
+                                    
+<li>
+    <a href="../../user-guide/performance/" class="dropdown-item">Performance monitoring</a>
+</li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -123,11 +130,19 @@
 </li>
                                     
 <li>
+    <a href="../architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
     <a href="../contributing/" class="dropdown-item">Contributing guide</a>
 </li>
                                     
 <li>
-    <a href="../testing_policy/" class="dropdown-item">Testing policy</a>
+    <a href="../coding-style/" class="dropdown-item">Coding style</a>
+</li>
+                                    
+<li>
+    <a href="../testing-policy/" class="dropdown-item">Testing policy</a>
 </li>
                                     
 <li>
@@ -140,6 +155,10 @@
                                     
 <li>
     <a href="./" class="dropdown-item active" aria-current="page">Integration guide</a>
+</li>
+                                    
+<li>
+    <a href="../faq/" class="dropdown-item">FAQ</a>
 </li>
                                 </ul>
                             </li>
@@ -170,7 +189,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../about/license/" class="nav-link">
+                                <a rel="next" href="../faq/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -237,31 +256,6 @@
             </li>
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#faq" class="nav-link">FAQ</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#useful-utilities" class="nav-link">Useful utilities</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#how-to-sign-a-release-using-gpg" class="nav-link">How to sign a release using GPG?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#how-to-use-gpg-to-verify-signed-release" class="nav-link">How to use GPG to verify signed release?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#dco-via-the-command-line" class="nav-link">DCO via the command line</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#how-to-generate-python-requirements-file-with-hashes" class="nav-link">How to generate Python requirements file with hashes?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
@@ -271,19 +265,19 @@
 <p>Use of LPVS JAR in your project</p>
 <hr />
 <h2 id="authenticating-with-a-personal-access-token">Authenticating with a personal access token</h2>
-<p>You can authenticate to GitHub Packages with Apache Maven by editing your
+<p>You can authenticate to GitHub Packages with Apache Maven by editing your 
 <code>~/.m2/settings.xml</code> file to include your personal access token.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Create a token with minimally sufficient rights:</p>
 <ul>
 <li>
-<p>Fine-grained tokens <strong>(recommended)</strong>
-    Only select repositories -&gt; Permissions -&gt; Repository permissions -&gt; Metadata -&gt; Read-only</p>
+<p>Fine-grained tokens <strong>(recommended)</strong>  </p>
+<p>Only select repositories -&gt; Permissions -&gt; Repository permissions -&gt; Metadata -&gt; Read-only</p>
 </li>
 <li>
-<p>Tokens (classic)
-    Select scopes -&gt; read:packages_</p>
+<p>Tokens (classic)</p>
+<p>Select scopes -&gt; read:packages</p>
 </li>
 </ul>
 </div>
@@ -324,7 +318,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If your <code>settings.xml</code> file is not located in <code>~/.m2/settings.xml</code>, then you need
+<p>If your <code>settings.xml</code> file is not located in <code>~/.m2/settings.xml</code>, then you need 
 to add the <code>-s path/to/file/settings.xml</code> option to <code>mvn</code> command</p>
 </div>
 <hr />
@@ -337,195 +331,7 @@ to add the <code>-s path/to/file/settings.xml</code> option to <code>mvn</code> 
 <span class="w">        </span><span class="nt">&lt;version&gt;</span>x.y.z<span class="nt">&lt;/version&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
-</code></pre></div>
-<h1 id="faq">FAQ</h1>
-<p>Frequently asked questions and useful information.</p>
-<hr />
-<h2 id="useful-utilities">Useful utilities</h2>
-<h3 id="swagger">Swagger</h3>
-<ul>
-<li><a href="https://swagger.io/">Swagger</a></li>
-<li><a href="https://editor.swagger.io/">Swagger Editor</a></li>
-</ul>
-<h3 id="plantuml">PlantUML</h3>
-<ul>
-<li><a href="http://plantuml.com/guide">PlantUML Language Reference Guide</a></li>
-<li><a href="https://www.planttext.com/">PlantText - Online Editor</a></li>
-</ul>
-<hr />
-<h2 id="how-to-sign-a-release-using-gpg">How to sign a release using GPG?</h2>
-<p>A good example of a release signature can be found on the <a href="https://wiki.debian.org/Creating%20signed%20GitHub%20releases">link</a>. However, 5 and 6 items are described separately.</p>
-<h3 id="creating-a-key-pair">Creating a key pair</h3>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--full-generate-key
-</code></pre></div>
-<p>During the execution of this command, you will need to enter additional data:</p>
-<ul>
-<li>Please select what kind of key you want: <strong>1</strong></li>
-<li>What keysize do you want? (3072): <strong>4096</strong></li>
-<li>Please specify how long the key should be valid: <strong>0</strong></li>
-<li>Key is valid for? (0): <strong>0</strong></li>
-<li>Is this correct? (y/N): <strong>y</strong></li>
-<li>Real name: <strong>LPVS</strong></li>
-<li>Email address: <strong>john.doe@example.com</strong></li>
-<li>Comment: <strong>Keys for LPVS</strong></li>
-</ul>
-<p>In this case, the result will be the next</p>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span><span class="o">(</span>GnuPG<span class="o">)</span><span class="w"> </span><span class="m">2</span>.2.4<span class="p">;</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2017</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
-This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software:<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>free<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>and<span class="w"> </span>redistribute<span class="w"> </span>it.
-There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>WARRANTY,<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>extent<span class="w"> </span>permitted<span class="w"> </span>by<span class="w"> </span>law.
-
-Please<span class="w"> </span><span class="k">select</span><span class="w"> </span>what<span class="w"> </span>kind<span class="w"> </span>of<span class="w"> </span>key<span class="w"> </span>you<span class="w"> </span>want:
-<span class="w">   </span><span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>RSA<span class="w"> </span>and<span class="w"> </span>RSA<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
-<span class="w">   </span><span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="w"> </span>DSA<span class="w"> </span>and<span class="w"> </span>Elgamal
-<span class="w">   </span><span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>DSA<span class="w"> </span><span class="o">(</span>sign<span class="w"> </span>only<span class="o">)</span>
-<span class="w">   </span><span class="o">(</span><span class="m">4</span><span class="o">)</span><span class="w"> </span>RSA<span class="w"> </span><span class="o">(</span>sign<span class="w"> </span>only<span class="o">)</span>
-Your<span class="w"> </span>selection?<span class="w"> </span><span class="m">1</span>
-RSA<span class="w"> </span>keys<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>between<span class="w"> </span><span class="m">1024</span><span class="w"> </span>and<span class="w"> </span><span class="m">4096</span><span class="w"> </span>bits<span class="w"> </span>long.
-What<span class="w"> </span>keysize<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want?<span class="w"> </span><span class="o">(</span><span class="m">3072</span><span class="o">)</span><span class="w"> </span><span class="m">4096</span>
-Requested<span class="w"> </span>keysize<span class="w"> </span>is<span class="w"> </span><span class="m">4096</span><span class="w"> </span>bits
-Please<span class="w"> </span>specify<span class="w"> </span>how<span class="w"> </span>long<span class="w"> </span>the<span class="w"> </span>key<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>valid.
-<span class="w">         </span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>key<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>expire
-<span class="w">      </span>&lt;n&gt;<span class="w">  </span><span class="o">=</span><span class="w"> </span>key<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span>n<span class="w"> </span>days
-<span class="w">      </span>&lt;n&gt;w<span class="w"> </span><span class="o">=</span><span class="w"> </span>key<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span>n<span class="w"> </span>weeks
-<span class="w">      </span>&lt;n&gt;m<span class="w"> </span><span class="o">=</span><span class="w"> </span>key<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span>n<span class="w"> </span>months
-<span class="w">      </span>&lt;n&gt;y<span class="w"> </span><span class="o">=</span><span class="w"> </span>key<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span>n<span class="w"> </span>years
-Key<span class="w"> </span>is<span class="w"> </span>valid<span class="w"> </span><span class="k">for</span>?<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">0</span>
-Key<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>expire<span class="w"> </span>at<span class="w"> </span>all
-Is<span class="w"> </span>this<span class="w"> </span>correct?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>y
-
-GnuPG<span class="w"> </span>needs<span class="w"> </span>to<span class="w"> </span>construct<span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>ID<span class="w"> </span>to<span class="w"> </span>identify<span class="w"> </span>your<span class="w"> </span>key.
-
-Real<span class="w"> </span>name:<span class="w"> </span>LPVS
-Email<span class="w"> </span>address:<span class="w"> </span>john.doe@example.com
-Comment:<span class="w"> </span>Keys<span class="w"> </span><span class="k">for</span><span class="w"> </span>LPVS
-You<span class="w"> </span>selected<span class="w"> </span>this<span class="w"> </span>USER-ID:
-<span class="w">    </span><span class="s2">&quot;LPVS (Keys for LPVS) &lt;john.doe@example.com&gt;&quot;</span>
-
-Change<span class="w"> </span><span class="o">(</span>N<span class="o">)</span>ame,<span class="w"> </span><span class="o">(</span>C<span class="o">)</span>omment,<span class="w"> </span><span class="o">(</span>E<span class="o">)</span>mail<span class="w"> </span>or<span class="w"> </span><span class="o">(</span>O<span class="o">)</span>kay/<span class="o">(</span>Q<span class="o">)</span>uit?<span class="w"> </span>O
-We<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>lot<span class="w"> </span>of<span class="w"> </span>random<span class="w"> </span>bytes.<span class="w"> </span>It<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>good<span class="w"> </span>idea<span class="w"> </span>to<span class="w"> </span>perform
-some<span class="w"> </span>other<span class="w"> </span>action<span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>keyboard,<span class="w"> </span>move<span class="w"> </span>the<span class="w"> </span>mouse,<span class="w"> </span>utilize<span class="w"> </span>the
-disks<span class="o">)</span><span class="w"> </span>during<span class="w"> </span>the<span class="w"> </span>prime<span class="w"> </span>generation<span class="p">;</span><span class="w"> </span>this<span class="w"> </span>gives<span class="w"> </span>the<span class="w"> </span>random<span class="w"> </span>number
-generator<span class="w"> </span>a<span class="w"> </span>better<span class="w"> </span>chance<span class="w"> </span>to<span class="w"> </span>gain<span class="w"> </span>enough<span class="w"> </span>entropy.
-We<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>lot<span class="w"> </span>of<span class="w"> </span>random<span class="w"> </span>bytes.<span class="w"> </span>It<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>good<span class="w"> </span>idea<span class="w"> </span>to<span class="w"> </span>perform
-some<span class="w"> </span>other<span class="w"> </span>action<span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>keyboard,<span class="w"> </span>move<span class="w"> </span>the<span class="w"> </span>mouse,<span class="w"> </span>utilize<span class="w"> </span>the
-disks<span class="o">)</span><span class="w"> </span>during<span class="w"> </span>the<span class="w"> </span>prime<span class="w"> </span>generation<span class="p">;</span><span class="w"> </span>this<span class="w"> </span>gives<span class="w"> </span>the<span class="w"> </span>random<span class="w"> </span>number
-generator<span class="w"> </span>a<span class="w"> </span>better<span class="w"> </span>chance<span class="w"> </span>to<span class="w"> </span>gain<span class="w"> </span>enough<span class="w"> </span>entropy.
-gpg:<span class="w"> </span>key<span class="w"> </span>BE13B1D440E813F0<span class="w"> </span>marked<span class="w"> </span>as<span class="w"> </span>ultimately<span class="w"> </span>trusted
-gpg:<span class="w"> </span>revocation<span class="w"> </span>certificate<span class="w"> </span>stored<span class="w"> </span>as<span class="w"> </span><span class="s1">&#39;/home/virtual-pc/.gnupg/openpgp-revocs.d/D3C7C06AC34BDA9A41388E76BE13B1D440E813F0.rev&#39;</span>
-public<span class="w"> </span>and<span class="w"> </span>secret<span class="w"> </span>key<span class="w"> </span>created<span class="w"> </span>and<span class="w"> </span>signed.
-
-pub<span class="w">   </span>rsa4096<span class="w"> </span><span class="m">2021</span>-10-15<span class="w"> </span><span class="o">[</span>SC<span class="o">]</span>
-<span class="w">      </span>D3C7C06AC34BDA9A41388E76BE13B1D440E813F0
-uid<span class="w">                      </span>LPVS<span class="w"> </span><span class="o">(</span>Keys<span class="w"> </span><span class="k">for</span><span class="w"> </span>LPVS<span class="o">)</span><span class="w"> </span>&lt;john.doe@example.com&gt;
-sub<span class="w">   </span>rsa4096<span class="w"> </span><span class="m">2021</span>-10-15<span class="w"> </span><span class="o">[</span>E<span class="o">]</span>
-</code></pre></div>
-<h3 id="create-and-sign-a-tag-with-your-created-key">Create and sign a tag with your created key</h3>
-<p>Set your GPG signing key in Git</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.signingkey<span class="w"> </span>&lt;key-ID&gt;
-</code></pre></div>
-<p>Create and sign the tag</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>&lt;tag&gt;
-</code></pre></div>
-<h3 id="sign-the-release-tarball-with-your-created-key">Sign the release tarball with your created key</h3>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--armor<span class="w"> </span>--detach-sign<span class="w"> </span>lpvs-vx.x.x.tar.gz
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have multiple keys, you must specify the key that will be used by adding the option <code>-u &lt;key-ID&gt;</code></p>
-</div>
-<h3 id="extraction-a-copy-of-a-key-pair-from-local-gpg-keyring">Extraction a copy of a key pair from local gpg keyring</h3>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--output<span class="w"> </span>lpvs-public.pgp<span class="w"> </span>--armor<span class="w"> </span>--export<span class="w"> </span>john.doe@example.com
-gpg<span class="w"> </span>--output<span class="w"> </span>lpvs-private.pgp<span class="w"> </span>--armor<span class="w"> </span>--export-secret-key<span class="w"> </span>john.doe@example.com
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only the signature file (<code>lpvs-vx.x.x.tar.gz.asc</code>) and the public key (<code>lpvs-public.pgp</code>) must be loaded as an artifact to release.</p>
-</div>
-<h3 id="to-sign-the-release-using-another-computer">To sign the release using another computer</h3>
-<p>For this need to download the private key (<code>lpvs-private.pgp</code>) by the next command:</p>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--import<span class="w"> </span>lpvs-private.pgp
-</code></pre></div>
-<hr />
-<h2 id="how-to-use-gpg-to-verify-signed-release">How to use GPG to verify signed release?</h2>
-<p>To perform the verification, you need the following:</p>
-<ul>
-<li>signed file – for example <code>lpvs-vx.x.x.tar.gz</code></li>
-<li>signature file – accompanying file with “.asc” extension (Ex. <code>lpvs-vx.x.x.tar.gz.asc</code>)</li>
-<li>public key – for example <code>lpvs-public.pgp</code></li>
-</ul>
-<h3 id="import-the-public-key-to-your-keystore">Import the public key to your keystore</h3>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--import<span class="w"> </span>&lt;public<span class="w"> </span>key&gt;
-</code></pre></div>
-<h3 id="verification-signed-file">Verification signed file</h3>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--verify<span class="w"> </span>&lt;signature<span class="w"> </span>file&gt;<span class="w"> </span>&lt;signed<span class="w"> </span>file&gt;
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have multiple keys, you must specify the key that will be used by adding the option <code>-u &lt;key-ID&gt;</code></p>
-</div>
-<hr />
-<h2 id="dco-via-the-command-line">DCO via the command line</h2>
-<p>The most popular way to do DCO is to sign off your username and email address in the git command line.</p>
-<p>First, configure your local git install.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
-$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>johndoe@example.com
-</code></pre></div>
-<p>Obviously, you should use your own name and the email address associated with your GitHub user account.</p>
-<p>Now, every time you commit new code in git, just add a signoff statement via the <code>-s</code> flag.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-s<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;This is my commit message&quot;</span>
-</code></pre></div>
-<p>That’s it. Git adds your sign-off message in the commit message, and you contribution (commit) is now DCO compliant.</p>
-<hr />
-<h2 id="how-to-generate-python-requirements-file-with-hashes">How to generate Python requirements file with hashes?</h2>
-<p>To generate a Python requirements.txt file with hashes, which ensures that the same versions of packages are installed across different environments, you can use the <code>pip-compile</code> tool from the <code>pip-tools</code> package. Here's a step-by-step guide on how to achieve this:</p>
-<h3 id="steps">Steps:</h3>
-<ol>
-<li>
-<p><strong>Install pip-tools:</strong>
-   First install pip-tools to manage you requirements.txt and add hashes.
-   <div class="copy highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pip-tools
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Create requirements.in file:</strong>
-   Add your packages to a requirements.txt file. This file will be used as input to generate the final requirements.txt file with hashes.
-   In case you need to use exact version of a package you can specify it in this file.
-   Example requirements.in:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>mkdocs==1.6.1
-pymdown-extensions==10.9
-</code></pre></div>
-<ol start="3">
-<li><strong>Compile the requirements.txt with hashes:</strong>
-   Use pip-compile with <code>--generate-hashes</code> flag to create a requirements.txt file includes secure hashes.
-   <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip-compile<span class="w"> </span>--generate-hashes
-</code></pre></div></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you want to use custom names of input and output requirements file, specify them in command line like this:</p>
-<div class="highlight"><pre><span></span><code>pip-compile<span class="w"> </span>--output-file<span class="o">=</span>custom-requirements.txt<span class="w"> </span>--generate-hashes<span class="w"> </span>custom-requirements.in
-</code></pre></div>
-<ul>
-<li>Without <code>--output-file</code>: It will always create requirements.txt file.</li>
-<li>With <code>--output-file</code>: It will specify any custom output file name.</li>
-</ul>
-</div>
-<ol start="4">
-<li><strong>Result:</strong>
-   It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
-   Example output in requirements.txt:
-   <div class="highlight"><pre><span></span><code>mkdocs==1.6.1 \
-    --hash=sha256:... \
-    --hash=sha256:...
-...
-pymdown-extensions==10.9 \
-    --hash=sha256:... \
-    --hash=sha256:...
-...
-</code></pre></div></li>
-</ol></div>
+</code></pre></div></div>
             </div>
         </div>
 

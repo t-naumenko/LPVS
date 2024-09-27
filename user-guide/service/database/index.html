@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://samsung.github.io/LPVS/user-guide/service/database/">
+        <link rel="canonical" href="https://t-naumenko.github.io/LPVS/user-guide/service/database/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
         <title>Database configuration - License Pre-Validation Service</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +17,8 @@
         <link href="../../../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../../css/mkdocsoad.css" rel="stylesheet">
         <link href="../../../css/extra.css" rel="stylesheet">
+        <link href="../../../css/mkdocsoad.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
@@ -38,6 +38,9 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
                                 <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../quick-start-guide/" class="nav-link">Quick Start Guide</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
@@ -112,6 +115,10 @@
 </li>
     </ul>
   </li>
+                                    
+<li>
+    <a href="../../performance/" class="dropdown-item">Performance monitoring</a>
+</li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -123,11 +130,19 @@
 </li>
                                     
 <li>
+    <a href="../../../dev-guide/architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
     <a href="../../../dev-guide/contributing/" class="dropdown-item">Contributing guide</a>
 </li>
                                     
 <li>
-    <a href="../../../dev-guide/testing_policy/" class="dropdown-item">Testing policy</a>
+    <a href="../../../dev-guide/coding-style/" class="dropdown-item">Coding style</a>
+</li>
+                                    
+<li>
+    <a href="../../../dev-guide/testing-policy/" class="dropdown-item">Testing policy</a>
 </li>
                                     
 <li>
@@ -140,6 +155,10 @@
                                     
 <li>
     <a href="../../../dev-guide/integration/" class="dropdown-item">Integration guide</a>
+</li>
+                                    
+<li>
+    <a href="../../../dev-guide/faq/" class="dropdown-item">FAQ</a>
 </li>
                                 </ul>
                             </li>
@@ -262,18 +281,22 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mysql
 </code></pre></div>
 <ul>
-<li>Run the following commands in the MySQL command line interface to create the necessary database and user:</li>
+<li>Run the following commands in the MySQL command line interface to create the necessary database and user.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">lpvs</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lpvs</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span><span class="p">;</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace <code>username</code> and <code>password</code> with your preferred values. However, in the example below, they are kept as placeholders for the sake of clarity.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">lpvs</span><span class="p">;</span>
+<span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
+<span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lpvs</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
+<span class="k">alter</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="p">;</span>
+<span class="n">exit</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li>(<strong>Optional</strong>) If you have an existing dump file, import it into the newly created database using the command:</li>
+<li>(<strong>Optional</strong>) If using the provided dump file, make sure to run the following command from the repository's base folder. If using a different dump file, specify its path in the command. After running the command, you will be prompted to enter the password set in the previous step:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>mysql<span class="w"> </span>-u<span class="o">[</span>username<span class="o">]</span><span class="w"> </span>-p<span class="o">[</span>password<span class="o">]</span><span class="w"> </span>&lt;<span class="w"> </span>/path/to/dump/file/database_dump.sql
+<div class="highlight"><pre><span></span><code>mysql<span class="w"> </span>-u<span class="w"> </span><span class="o">[</span>username<span class="o">]</span><span class="w"> </span>-p<span class="w"> </span>&lt;<span class="w"> </span>/src/main/resources/database_dump.sql
 </code></pre></div>
 <ul>
 <li>
