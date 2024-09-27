@@ -502,14 +502,11 @@ pymdown-extensions==10.9
 </code></pre></div></p>
 </li>
 </ol>
-<p>!!! note</p>
-<pre><code>   If you want to use custom names of input and output requirements file, specify them in command line like this:
-   ```bash
-   $ pip-compile --output-file=custom-requirements.txt --generate-hashes custom-requirements.in
-   ```
-   - Without `--output-file`: It will always create requirements.txt file.
-   - With `--output-file`: It will specify any custom output file name.
-</code></pre>
+<p>!!! note If you want to use custom names of input and output requirements file, specify them in command line like this:
+       <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip-compile<span class="w"> </span>--output-file<span class="o">=</span>custom-requirements.txt<span class="w"> </span>--generate-hashes<span class="w"> </span>custom-requirements.in
+</code></pre></div>
+       - Without <code>--output-file</code>: It will always create requirements.txt file.
+       - With <code>--output-file</code>: It will specify any custom output file name.</p>
 <ol>
 <li><strong>Result:</strong>
    It will generate a requirements.txt (or custom-requirements.txt) file with hashes for each package, ensuring the integrity and security of the installed packages.
